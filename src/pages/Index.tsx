@@ -21,8 +21,10 @@ export default function Index() {
 
         {/* Круговая рамка с текстом по окружности */}
         <svg className="circle-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          {/* Заливка круга */}
+          <circle cx={CX} cy={CY} r={R} fill="#0a0a0a" />
           {/* Внешний круг */}
-          <circle cx={CX} cy={CY} r={R} fill="none" stroke="#fff" strokeWidth="2" />
+          <circle cx={CX} cy={CY} r={R} fill="none" stroke="#fff" strokeWidth="2.5" />
           {/* Внутренний круг */}
           <circle cx={CX} cy={CY} r={R - 14} fill="none" stroke="#fff" strokeWidth="1" opacity="0.4" />
 
@@ -69,8 +71,8 @@ export default function Index() {
 
         .logo {
           position: relative;
-          width: 420px;
-          height: 420px;
+          width: 520px;
+          height: 520px;
           opacity: 0;
           transform: scale(0.94);
           transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.16,1,0.3,1);
