@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const CHAR_IMAGE = "https://cdn.poehali.dev/projects/4227ae90-88f2-4ad5-819d-7e942eeff46e/files/a8fb5ee6-7c30-4ed1-a5f6-2c466961b9f0.jpg";
+const CHAR_IMAGE = "https://cdn.poehali.dev/projects/4227ae90-88f2-4ad5-819d-7e942eeff46e/files/1582a751-6a92-49de-903a-509eff25565e.jpg";
 
 export default function Index() {
   const [loaded, setLoaded] = useState(false);
@@ -14,27 +14,26 @@ export default function Index() {
     <div className="root">
       <div className={`wrapper ${loaded ? "visible" : ""}`}>
 
-        {/* Circle */}
-        <div className="circle-wrap">
+        {/* Black rounded square icon */}
+        <div className="icon-box">
           <img src={CHAR_IMAGE} alt="Absolute Squad" className="char-img" />
         </div>
 
         {/* Name below */}
         <div className="name-block">
-          <span className="name-word">ABSOLUTE</span>
-          <span className="name-word">SQUAD</span>
+          <span className="name-line">Absolute Squad</span>
         </div>
 
       </div>
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         .root {
           min-height: 100vh;
-          background: #0a0a0a;
+          background: #e8e8e8;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -45,10 +44,10 @@ export default function Index() {
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 28px;
+          gap: 24px;
           opacity: 0;
-          transform: translateY(20px);
-          transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.16,1,0.3,1);
+          transform: translateY(16px);
+          transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16,1,0.3,1);
         }
 
         .wrapper.visible {
@@ -56,25 +55,26 @@ export default function Index() {
           transform: translateY(0);
         }
 
-        /* Circle */
-        .circle-wrap {
-          width: 340px;
-          height: 340px;
-          border-radius: 50%;
+        /* Rounded square */
+        .icon-box {
+          width: 300px;
+          height: 300px;
+          border-radius: 64px;
           overflow: hidden;
-          border: 3px solid #fff;
-          box-shadow: 0 0 0 6px #0a0a0a, 0 0 0 8px rgba(255,255,255,0.15);
-          position: relative;
+          background: #0a0a0a;
           flex-shrink: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
         .char-img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: center top;
+          width: 75%;
+          height: 75%;
+          object-fit: contain;
+          object-position: center;
           display: block;
-          filter: grayscale(100%) contrast(2) brightness(0.3) drop-shadow(0 0 2px #fff);
+          filter: grayscale(100%) contrast(1.8) brightness(1.1);
         }
 
         /* Name */
@@ -82,23 +82,20 @@ export default function Index() {
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 0;
-          line-height: 0.88;
         }
 
-        .name-word {
-          font-family: 'Bebas Neue', sans-serif;
-          font-size: 64px;
-          letter-spacing: 0.2em;
-          color: #000;
-          -webkit-text-stroke: 1.5px #fff;
+        .name-line {
+          font-family: 'Inter', sans-serif;
+          font-weight: 600;
+          font-size: 42px;
+          color: #111;
           white-space: nowrap;
-          display: block;
+          letter-spacing: -0.01em;
         }
 
         @media (max-width: 480px) {
-          .circle-wrap { width: 260px; height: 260px; }
-          .name-word { font-size: 46px; }
+          .icon-box { width: 220px; height: 220px; border-radius: 48px; }
+          .name-line { font-size: 30px; }
         }
       `}</style>
     </div>
