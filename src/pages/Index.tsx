@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const CHAR_IMAGE = "https://cdn.poehali.dev/projects/4227ae90-88f2-4ad5-819d-7e942eeff46e/files/258cd983-37c1-4e8c-9bce-24e371c34686.jpg";
+const CHAR_IMAGE = "https://cdn.poehali.dev/projects/4227ae90-88f2-4ad5-819d-7e942eeff46e/files/09916540-aa8c-4b37-84ec-266559fab813.jpg";
 
 export default function Index() {
   const [loaded, setLoaded] = useState(false);
