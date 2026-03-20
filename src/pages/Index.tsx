@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const CHAR_IMAGE = "https://cdn.poehali.dev/projects/4227ae90-88f2-4ad5-819d-7e942eeff46e/files/9fa39bbd-94e9-47af-9349-f98167c33766.jpg";
+const CHAR_IMAGE = "https://cdn.poehali.dev/projects/4227ae90-88f2-4ad5-819d-7e942eeff46e/bucket/c792f190-5a65-489b-9cb7-b3730ad1829d.png";
 
 export default function Index() {
   const [loaded, setLoaded] = useState(false);
@@ -14,20 +14,21 @@ export default function Index() {
     <div className="root">
       <div className={`wrapper ${loaded ? "visible" : ""}`}>
 
-        {/* Black rounded square icon */}
+        {/* Character image */}
         <div className="icon-box">
           <img src={CHAR_IMAGE} alt="Absolute Squad" className="char-img" />
         </div>
 
-        {/* Name below */}
+        {/* Name below arms */}
         <div className="name-block">
-          <span className="name-line">Absolute Squad</span>
+          <span className="name-absolute">ABSOLUTE</span>
+          <span className="name-squad">SQUAD</span>
         </div>
 
       </div>
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@700&display=swap');
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -44,7 +45,7 @@ export default function Index() {
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 24px;
+          gap: 0;
           opacity: 0;
           transform: translateY(16px);
           transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16,1,0.3,1);
@@ -55,13 +56,9 @@ export default function Index() {
           transform: translateY(0);
         }
 
-        /* Rounded square */
         .icon-box {
-          width: 300px;
-          height: 300px;
-          border-radius: 64px;
-          overflow: hidden;
-          background: #0a0a0a;
+          width: 380px;
+          height: 380px;
           flex-shrink: 0;
           display: flex;
           align-items: center;
@@ -69,15 +66,11 @@ export default function Index() {
         }
 
         .char-img {
-          width: 75%;
-          height: 75%;
+          width: 100%;
+          height: 100%;
           object-fit: contain;
           object-position: center;
           display: block;
-          filter: grayscale(100%) contrast(2.5) brightness(0.15) invert(0)
-            drop-shadow(0 0 1px #fff)
-            drop-shadow(0 0 2px #fff)
-            drop-shadow(0 0 4px rgba(255,255,255,0.6));
         }
 
         /* Name */
@@ -85,20 +78,31 @@ export default function Index() {
           display: flex;
           flex-direction: column;
           align-items: center;
+          margin-top: -8px;
+          line-height: 0.9;
         }
 
-        .name-line {
-          font-family: 'Inter', sans-serif;
-          font-weight: 600;
-          font-size: 42px;
+        .name-absolute {
+          font-family: 'Bebas Neue', sans-serif;
+          font-size: 62px;
+          letter-spacing: 0.22em;
           color: #fff;
           white-space: nowrap;
-          letter-spacing: -0.01em;
+          display: block;
+        }
+
+        .name-squad {
+          font-family: 'Bebas Neue', sans-serif;
+          font-size: 62px;
+          letter-spacing: 0.22em;
+          color: #fff;
+          white-space: nowrap;
+          display: block;
         }
 
         @media (max-width: 480px) {
-          .icon-box { width: 220px; height: 220px; border-radius: 48px; }
-          .name-line { font-size: 30px; }
+          .icon-box { width: 280px; height: 280px; }
+          .name-absolute, .name-squad { font-size: 44px; }
         }
       `}</style>
     </div>
