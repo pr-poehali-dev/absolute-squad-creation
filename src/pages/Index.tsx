@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const CHAR_IMAGE = "https://cdn.poehali.dev/projects/4227ae90-88f2-4ad5-819d-7e942eeff46e/files/67f8db5a-7fa2-43f1-8452-190f14148a13.jpg";
+const CHAR_IMAGE = "https://cdn.poehali.dev/projects/4227ae90-88f2-4ad5-819d-7e942eeff46e/files/ea73badf-e017-40cd-bd36-5ae890cac4f2.jpg";
 
 const R = 180; // радиус окружности текста
 const CX = 200;
