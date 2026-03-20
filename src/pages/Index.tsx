@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const CHAR_IMAGE = "https://cdn.poehali.dev/projects/4227ae90-88f2-4ad5-819d-7e942eeff46e/files/35bb258c-fcdf-4580-b33c-e0c0a80a2f75.jpg";
+const CHAR_IMAGE = "https://cdn.poehali.dev/projects/4227ae90-88f2-4ad5-819d-7e942eeff46e/files/ff55cb77-951f-462d-adf5-f635389dd0f1.jpg";
 
 export default function Index() {
   const [loaded, setLoaded] = useState(false);
@@ -101,7 +101,7 @@ export default function Index() {
           object-fit: cover;
           object-position: center top;
           display: block;
-          filter: grayscale(100%) contrast(1.4) brightness(1.05) invert(1);
+          filter: grayscale(100%) contrast(1.6) brightness(0.75) invert(1);
         }
 
         .char-fade-top {
