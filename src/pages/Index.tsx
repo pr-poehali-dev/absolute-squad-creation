@@ -33,7 +33,7 @@ export default function Index() {
 
         .root {
           min-height: 100vh;
-          background: #e8e8e8;
+          background: #0a0a0a;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -88,7 +88,7 @@ export default function Index() {
           font-family: 'Inter', sans-serif;
           font-weight: 600;
           font-size: 42px;
-          color: #111;
+          color: #fff;
           white-space: nowrap;
           letter-spacing: -0.01em;
         }
