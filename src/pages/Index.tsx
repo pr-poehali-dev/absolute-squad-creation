@@ -74,7 +74,10 @@ export default function Index() {
           object-fit: contain;
           object-position: center;
           display: block;
-          filter: grayscale(100%) contrast(1.8) brightness(1.1);
+          filter: grayscale(100%) contrast(2.5) brightness(0.15) invert(0)
+            drop-shadow(0 0 1px #fff)
+            drop-shadow(0 0 2px #fff)
+            drop-shadow(0 0 4px rgba(255,255,255,0.6));
         }
 
         /* Name */
