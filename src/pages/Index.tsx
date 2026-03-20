@@ -82,7 +82,8 @@ export default function Index() {
           font-family: 'Bebas Neue', sans-serif;
           font-size: 54px;
           letter-spacing: 0.16em;
-          color: #fff;
+          color: #000;
+          -webkit-text-stroke: 1.5px #fff;
           line-height: 1;
           white-space: nowrap;
           display: block;
@@ -101,7 +102,7 @@ export default function Index() {
           object-fit: cover;
           object-position: center top;
           display: block;
-          filter: grayscale(100%) contrast(1.6) brightness(0.75) invert(1);
+          filter: grayscale(100%) contrast(2) brightness(0.3) drop-shadow(0 0 1px #fff) drop-shadow(0 0 2px #fff);
         }
 
         .char-fade-top {
