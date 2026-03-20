@@ -42,7 +42,7 @@ export default function Index() {
 
         .root {
           min-height: 100vh;
-          background: #ffffff;
+          background: #0a0a0a;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -74,7 +74,7 @@ export default function Index() {
         .label-line {
           flex: 1;
           height: 2px;
-          background: #111;
+          background: #fff;
           display: block;
         }
 
@@ -82,7 +82,7 @@ export default function Index() {
           font-family: 'Bebas Neue', sans-serif;
           font-size: 54px;
           letter-spacing: 0.16em;
-          color: #111;
+          color: #fff;
           line-height: 1;
           white-space: nowrap;
           display: block;
@@ -101,14 +101,14 @@ export default function Index() {
           object-fit: cover;
           object-position: center top;
           display: block;
-          filter: grayscale(100%) contrast(1.3) brightness(0.92);
+          filter: grayscale(100%) contrast(1.4) brightness(1.05) invert(1);
         }
 
         .char-fade-top {
           position: absolute;
           top: 0; left: 0; right: 0;
           height: 50px;
-          background: linear-gradient(to bottom, #fff 0%, transparent 100%);
+          background: linear-gradient(to bottom, #0a0a0a 0%, transparent 100%);
           pointer-events: none;
         }
 
@@ -116,7 +116,7 @@ export default function Index() {
           position: absolute;
           bottom: 0; left: 0; right: 0;
           height: 80px;
-          background: linear-gradient(to top, #fff 0%, transparent 100%);
+          background: linear-gradient(to top, #0a0a0a 0%, transparent 100%);
           pointer-events: none;
         }
 
@@ -126,7 +126,7 @@ export default function Index() {
           font-weight: 200;
           font-size: 11px;
           letter-spacing: 0.45em;
-          color: #999;
+          color: #555;
         }
 
         @media (max-width: 480px) {
