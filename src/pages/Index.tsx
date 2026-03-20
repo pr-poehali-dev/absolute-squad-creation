@@ -2,6 +2,11 @@ import { useEffect, useState } from "react";
 
 const CHAR_IMAGE = "https://cdn.poehali.dev/projects/4227ae90-88f2-4ad5-819d-7e942eeff46e/bucket/c792f190-5a65-489b-9cb7-b3730ad1829d.png";
 
+const R = 180; // радиус окружности текста
+const CX = 200;
+const CY = 200;
+const PERIMETER = 2 * Math.PI * R;
+
 export default function Index() {
   const [loaded, setLoaded] = useState(false);
 
@@ -12,23 +17,44 @@ export default function Index() {
 
   return (
     <div className="root">
-      <div className={`wrapper ${loaded ? "visible" : ""}`}>
+      <div className={`logo ${loaded ? "visible" : ""}`}>
 
-        {/* Character image */}
-        <div className="icon-box">
+        {/* Круговая рамка с текстом по окружности */}
+        <svg className="circle-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          {/* Внешний круг */}
+          <circle cx={CX} cy={CY} r={R} fill="none" stroke="#fff" strokeWidth="2" />
+          {/* Внутренний круг */}
+          <circle cx={CX} cy={CY} r={R - 14} fill="none" stroke="#fff" strokeWidth="1" opacity="0.4" />
+
+          {/* Текст по верхней дуге: ABSOLUTE */}
+          <defs>
+            <path id="topArc" d={`M ${CX - R},${CY} A ${R},${R} 0 0,1 ${CX + R},${CY}`} />
+            <path id="botArc" d={`M ${CX - R},${CY} A ${R},${R} 0 0,0 ${CX + R},${CY}`} />
+          </defs>
+
+          <text fill="#fff" fontFamily="'Bebas Neue', sans-serif" fontSize="28" letterSpacing="14">
+            <textPath href="#topArc" startOffset="50%" textAnchor="middle">ABSOLUTE</textPath>
+          </text>
+
+          {/* Текст по нижней дуге: SQUAD */}
+          <text fill="#fff" fontFamily="'Bebas Neue', sans-serif" fontSize="28" letterSpacing="20">
+            <textPath href="#botArc" startOffset="50%" textAnchor="middle">SQUAD</textPath>
+          </text>
+
+          {/* Декоративные точки по бокам */}
+          <circle cx={CX - R} cy={CY} r="3" fill="#fff" />
+          <circle cx={CX + R} cy={CY} r="3" fill="#fff" />
+        </svg>
+
+        {/* Персонаж внутри круга */}
+        <div className="char-wrap">
           <img src={CHAR_IMAGE} alt="Absolute Squad" className="char-img" />
-        </div>
-
-        {/* Name below arms */}
-        <div className="name-block">
-          <span className="name-absolute">ABSOLUTE</span>
-          <span className="name-squad">SQUAD</span>
         </div>
 
       </div>
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -41,28 +67,35 @@ export default function Index() {
           overflow: hidden;
         }
 
-        .wrapper {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 0;
+        .logo {
+          position: relative;
+          width: 420px;
+          height: 420px;
           opacity: 0;
-          transform: translateY(16px);
-          transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16,1,0.3,1);
+          transform: scale(0.94);
+          transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.16,1,0.3,1);
         }
 
-        .wrapper.visible {
+        .logo.visible {
           opacity: 1;
-          transform: translateY(0);
+          transform: scale(1);
         }
 
-        .icon-box {
-          width: 380px;
-          height: 380px;
-          flex-shrink: 0;
+        .circle-svg {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 2;
+        }
+
+        .char-wrap {
+          position: absolute;
+          inset: 22px;
           display: flex;
           align-items: center;
           justify-content: center;
+          z-index: 1;
         }
 
         .char-img {
@@ -73,36 +106,8 @@ export default function Index() {
           display: block;
         }
 
-        /* Name */
-        .name-block {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          margin-top: -8px;
-          line-height: 0.9;
-        }
-
-        .name-absolute {
-          font-family: 'Bebas Neue', sans-serif;
-          font-size: 62px;
-          letter-spacing: 0.22em;
-          color: #fff;
-          white-space: nowrap;
-          display: block;
-        }
-
-        .name-squad {
-          font-family: 'Bebas Neue', sans-serif;
-          font-size: 62px;
-          letter-spacing: 0.22em;
-          color: #fff;
-          white-space: nowrap;
-          display: block;
-        }
-
         @media (max-width: 480px) {
-          .icon-box { width: 280px; height: 280px; }
-          .name-absolute, .name-squad { font-size: 44px; }
+          .logo { width: 300px; height: 300px; }
         }
       `}</style>
     </div>
